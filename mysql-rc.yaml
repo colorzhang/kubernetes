@@ -1,0 +1,35 @@
+# rc4db
+apiVersion: v1
+kind: ReplicationController
+namespace: default
+metadata:
+  name: mysql-controller
+spec:
+  replicas: 1
+  selector:
+    app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.6
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: hybris
+        - name: MYSQL_DATABASE
+          value: hybris
+        - name: MYSQL_USER
+          value: hybris
+        - name: MYSQL_PASSWORD
+          value: hybris
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-data
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-data
+        emptyDir: {}

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ReplicationController
+namespace: default
+metadata:
+  name: solrcloud-controller
+spec:
+  replicas: 2
+  selector:
+    app: solrcloud
+  template:
+    metadata:
+      labels:
+        app: solrcloud
+    spec:
+      containers:
+      - name: solrcloud
+        image: winston/solr:5.2.1
+        env:
+        - name: ZKHOST
+          value: 10.0.108.253:2181
+        ports:
+        - containerPort: 8983
+        volumeMounts:
+        - name: solr-data
+          mountPath: /opt/solr/solr-5.2.1/server/data
+      volumes:
+      - name: solr-data
+        emptyDir: {}

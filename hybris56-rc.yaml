@@ -1,0 +1,25 @@
+# rc4hybris
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hybris56-controller
+spec:
+  replicas: 1
+  selector:
+    app: hybris56
+  template:
+    metadata:
+      labels:
+        app: hybris56
+    spec:
+      containers:
+      - name: hybris56
+        image: winston/hybris:5.6
+        resources:
+          limits:
+            memory: "4096Mi"
+            cpu: "4000m"
+        ports:
+        - containerPort: 9001
+        - containerPort: 9002
+        - containerPort: 8000
