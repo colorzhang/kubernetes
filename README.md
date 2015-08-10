@@ -47,3 +47,33 @@ immutable infrastructure
 
     Final Dockfile
     Further improvement
+
+#Verify with docker command
+
+    build image
+    docker build -t winston/hybris56 .
+    run
+    docker run -it --name=hybris -p 9001:9001 -p 9002:9002 -p 8000:8000 winston/hybris56
+    
+#Kubernetes up & running
+
+#Verify and scale
+#Orchestrate more components
+
+    dockerize solr/zookeeper
+    dockerize mysql
+    dockerize nginx
+
+#Further improvements
+
+    automate with Ansible
+    multi-nodes kubernetes cluster
+    monitoring
+    security
+    overlay network
+
+Happy containerizing!
+
+Winston Zhang (colorzhang@gmail.com)
+
+August 2015
