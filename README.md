@@ -4,7 +4,7 @@ Dockerize hybris components and orchestrate with Kubernetes
 
 https://wiki.hybris.com/display/~winston.zhang@hybris.com/Dockerize+hybris+and+orchestrate+with+Kubernetes
 
-Motivation
+#Motivation
 
 containerize hybris components
 
@@ -19,7 +19,7 @@ resource orchestration
 immutable infrastructure
 
 
-Preparation
+#Preparation
 
     software
     hybris 5.6
@@ -33,7 +33,7 @@ Preparation
 
     environment
 
-Dockerize hybris
+#Dockerize hybris
 
     Dockerize
     based on Open JDK 8
