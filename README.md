@@ -67,6 +67,10 @@ cp _output/local/bin/linux/amd64/kube* /usr/bin
 
 ##run kubernetes
 ```bash
+/etc/init.d/etcd start
+
+/etc/init.d/docker start
+
 kube-apiserver --allow-privileged --insecure-bind-address=0.0.0.0 --insecure-port=8080 --service-cluster-ip-range=10.0.0.0/16 --etcd_servers=http://localhost:4001 --admission_control=NamespaceLifecycle,LimitRanger,ResourceQuota >/var/log/kube/kube-apiserver.log 2>&1 &
 
 kube-controller-manager --master=http://localhost:8080 >/var/log/kube/kube-controller-manager.log 2>&1 &
@@ -77,6 +81,7 @@ kube-proxy --master=http://localhost:8080 --legacy-userspace-proxy=false --v=1 >
 
 kubelet --allow-privileged --api_servers=http://localhost:8080 --v=1 >/var/log/kube/kubelet.log 2>&1 &
 ```
+:warning::warning::warning: kube-proxy eats too much cpu if use userspace proxy under heavy load. pls use to-be released iptables proxy in 1.1. see issue https://github.com/kubernetes/kubernetes/issues/13270 
 
 ##run hybris components
 ```bash
@@ -123,6 +128,32 @@ kubernetes         10.0.2.15:6443                                          29d
 mysql-service      172.17.0.43:3306                                        2d
 solr-service       172.17.0.66:8983,172.17.0.67:8983                       2d
 zk-service         172.17.0.62:2181                                        20d
+```
+
+```bash
+gentoo ~ # pstree 
+init-+-6*[agetty]
+     |-docker-+-3*[exe---3*[{exe}]]
+     |        |-java---26*[{java}]
+     |        |-kube-ui---3*[{kube-ui}]
+     |        |-mysqld---52*[{mysqld}]
+     |        |-3*[pause---3*[{pause}]]
+     |        |-3*[pause---4*[{pause}]]
+     |        |-start.sh---bash---java---45*[{java}]
+     |        |-start.sh---bash---java---53*[{java}]
+     |        |-wrapper.sh---wrapper-linux-x-+-java---188*[{java}]
+     |        |                              `-{wrapper-linux-x}
+     |        `-57*[{docker}]
+     |-etcd---8*[{etcd}]
+     |-kube-apiserver---17*[{kube-apiserver}]
+     |-kube-controller---16*[{kube-controller}]
+     |-kube-proxy---17*[{kube-proxy}]
+     |-kube-scheduler---15*[{kube-scheduler}]
+     |-kubelet---19*[{kubelet}]
+     |-sshd-+-sshd---bash
+     |      |-sshd---bash---pstree
+     |      `-2*[sshd---sshd---bash]
+     `-systemd-udevd
 ```
 
 #Scale in & out
