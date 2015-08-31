@@ -1,7 +1,6 @@
 # rc4db
 apiVersion: v1
 kind: ReplicationController
-namespace: default
 metadata:
   name: mysql-controller
 spec:
@@ -27,6 +26,7 @@ spec:
           value: hybris
         ports:
         - containerPort: 3306
+          hostPort: 33306
         volumeMounts:
         - name: mysql-data
           mountPath: /var/lib/mysql

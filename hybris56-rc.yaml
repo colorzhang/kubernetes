@@ -21,5 +21,13 @@ spec:
             cpu: "4000m"
         ports:
         - containerPort: 9001
+          hostPort: 39001
         - containerPort: 9002
+          hostPort: 39002
         - containerPort: 8000
+        volumeMounts:
+        - name: hybris-data
+          mountPath: /opt/hybris/hybris/data
+      volumes:
+      - name: hybris-data
+        emptyDir: {}
