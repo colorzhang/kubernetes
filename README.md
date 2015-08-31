@@ -100,6 +100,7 @@ mysql-controller-o9wof       1/1       Running   0          8h
 solrcloud-controller-sklrt   1/1       Running   0          8h
 solrcloud-controller-tshs7   1/1       Running   0          8h
 zk-controller-yt97k          1/1       Running   0          8h
+
 gentoo ~ # kubectl get svc
 NAME               CLUSTER_IP     EXTERNAL_IP   PORT(S)                      SELECTOR        AGE
 hybris56-service   10.0.159.218   <none>        9001/TCP,9002/TCP,8000/TCP   app=hybris56    23d
@@ -107,12 +108,14 @@ kubernetes         10.0.0.1       <none>        443/TCP                      <no
 mysql-service      10.0.199.144   <none>        3306/TCP                     app=mysql       2d
 solr-service       10.0.162.73    <none>        8983/TCP                     app=solrcloud   2d
 zk-service         10.0.108.253   <none>        2181/TCP                     app=zookeeper   20d
+
 gentoo ~ # kubectl get rc
 CONTROLLER             CONTAINER(S)   IMAGE(S)             SELECTOR        REPLICAS   AGE
 hybris56-controller    hybris56       winston/hybris:5.6   app=hybris56    1          3h
 mysql-controller       mysql          mysql:5.6            app=mysql       1          8h
 solrcloud-controller   solrcloud      winston/solr:5.2.1   app=solrcloud   2          8h
 zk-controller          zookeeper      apache/zookeeper     app=zookeeper   1          8h
+
 gentoo ~ # kubectl get ep
 NAME               ENDPOINTS                                               AGE
 hybris56-service   172.17.0.112:9002,172.17.0.112:9001,172.17.0.112:8000   23d
