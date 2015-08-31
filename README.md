@@ -32,7 +32,7 @@ immutable infrastructure
 ![deployment](images/deployment.png)
 ![architecture overview](images/architecture.png)
 
-#Dockerize hybris
+#Dockerize hybris components
 https://github.com/colorzhang/docker
 
     Dockerize
