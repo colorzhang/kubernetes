@@ -69,9 +69,9 @@ kubernetes/pause                   latest              6c4579af347b        13 mo
 
 #Verify with docker command
 ##build image
-    docker build -t winston/hybris56 .
+    docker build -t winston/hybris:5.6 .
 ##run
-    docker run -it --name=hybris -p 9001:9001 -p 9002:9002 -p 8000:8000 winston/hybris56
+    docker run -it --name=hybris -p 9001:9001 -p 9002:9002 -p 8000:8000 winston/hybris:5.6
     
 #Kubernetes up & running
 
@@ -103,15 +103,15 @@ kubelet --allow-privileged --api_servers=http://localhost:8080 --v=1 >/var/log/k
 
 ##run hybris components
 ```bash
-kubernetes create -f zk-service.yaml
-kubernetes create -f solr-service.yaml
-kubernetes create -f mysql-service.yaml
-kubernetes create -f hybris56-service.yaml
+kubectl create -f zk-service.yaml
+kubectl create -f solr-service.yaml
+kubectl create -f mysql-service.yaml
+kubectl create -f hybris56-service.yaml
 
-kubernetes create -f zk-rc.yaml
-kubernetes create -f solr-rc.yaml
-kubernetes create -f mysql-rc.yaml
-kubernetes create -f hybris56-rc.yaml
+kubectl create -f zk-rc.yaml
+kubectl create -f solr-rc.yaml
+kubectl create -f mysql-rc.yaml
+kubectl create -f hybris56-rc.yaml
 ```
 
 ##Verify
