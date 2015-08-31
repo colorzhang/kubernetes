@@ -3,6 +3,7 @@
 https://wiki.hybris.com/display/~winston.zhang@hybris.com/Dockerize+hybris+and+orchestrate+with+Kubernetes
 
 中文版
+
 [云化你的互联网应用和基础设施（三）统一管理和调度资源]
 (http://mp.weixin.qq.com/s?__biz=MzA3ODEwOTYwMQ==&mid=211496759&idx=1&sn=4f820e713219284335d83b353a625b30&scene=0&key=dffc561732c22651b26170eb67c84334e2a6e5389808040b3ac4d27e7963951e23407cd3b608fe1ad5332b4518a41ff0&ascene=0&uin=MTMyNTkzMjQyMA%3D%3D&devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.11+build(15A263e)&version=11020201&pass_ticket=xkqePP7AH46UOVED%2B95V%2BaCatwDrAqnBb5B0k80PA%2FFBO%2BvKjgQ5WC26VZrduDtx)
 
