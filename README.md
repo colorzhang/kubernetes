@@ -182,9 +182,9 @@ kubectl scale --replicas=4 replicationcontrollers solrcloud-controller
 
 #Orchestrate more components
 
-    dockerize solr/zookeeper
-    dockerize mysql
     dockerize nginx
+    dockerize ELK
+    dockerize redis
 
 #Further improvements
 
@@ -192,7 +192,7 @@ kubectl scale --replicas=4 replicationcontrollers solrcloud-controller
     multi-nodes kubernetes cluster
     monitoring
     security
-    overlay network
+    overlay network (Flannel)
 
 Happy containerizing!
 
