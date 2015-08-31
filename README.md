@@ -176,8 +176,14 @@ init-+-6*[agetty]
 ```
 
 #Scale in & out
+Scale out SolrCloud to 4 replicas
 ```bash
 kubectl scale --replicas=4 replicationcontrollers solrcloud-controller
+```
+
+Scale out hybris to 2 nodes
+```bash
+kubectl scale --replicas=2 replicationcontrollers hybris56-controller
 ```
 
 #Orchestrate more components
