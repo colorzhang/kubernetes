@@ -18,8 +18,7 @@ immutable infrastructure
 
 
 #Preparation
-
-    software
+##software
     hybris 5.6
     solr 5.2.1
     zookeeper 3.4.6
@@ -29,7 +28,9 @@ immutable infrastructure
     etcd 2.1.1
     kubernetes 1.0.1
 
-    environment
+##environment
+![deployment](images/deployment.png)
+![architecture overview](images/architecture.png)
 
 #Dockerize hybris
 https://github.com/colorzhang/docker
