@@ -85,6 +85,7 @@ cp _output/local/bin/linux/amd64/kube* /usr/bin
 ```
 
 ##run kubernetes
+start.sh
 ```bash
 /etc/init.d/etcd start
 
